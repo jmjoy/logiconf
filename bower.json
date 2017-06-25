@@ -1,0 +1,23 @@
+{
+  "name": "logiconf",
+  "homepage": "https://github.com/jmjoy/logiconf",
+  "authors": [
+    "jmjoy <jmjoy@jmjoy.top>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "resources/components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "zui": "https://github.com/jmjoy/zui.git#1000.0.0",
+    "jquery": "^3.2.1"
+  }
+}

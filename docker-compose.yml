@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  main:
+    build: .
+    volumes:
+      - .:/project
+    links:
+      - mysql
+    environment:
+      - LEIN_ROOT=1
+      - MYSQL_DATABASE=mysql://mysql:3306/project?user=root&password=root
+    ports:
+      - 9090:3000 # server port
+      - 10010:7000 # repl port
+
+  mysql:
+      image: mysql:5.6
+      environment:
+        - MYSQL_DATABASE=project
+        - MYSQL_ROOT_PASSWORD=root
+      ports:
+        - 12306:3306

@@ -32,6 +32,12 @@
                 (when repl-server
                   (repl/stop repl-server)))
 
+;; (mount/defstate ^{:on-reload :noop}
+;;   thrift-server
+;;   :start
+;;   ()
+;;   :stop
+;;   ())
 
 (defn stop-app []
   (doseq [component (:stopped (mount/stop))]
@@ -55,4 +61,3 @@
       (System/exit 0))
     :else
     (start-app args)))
-  

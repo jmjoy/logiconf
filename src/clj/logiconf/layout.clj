@@ -1,5 +1,6 @@
 (ns logiconf.layout
-  (:require [selmer.parser :as parser]
+  (:require [clojure.string :as s]
+            [selmer.parser :as parser]
             [selmer.filters :as filters]
             [markdown.core :refer [md-to-html-string]]
             [ring.util.http-response :refer [content-type ok]]
@@ -14,15 +15,19 @@
 (defn render
   "renders the HTML template located relative to resources/templates"
   [template & [params]]
-  (content-type
-    (ok
+  (let [suffix ".html"
+        template (if (s/ends-with? template suffix)
+                   template
+                   (str template suffix))]
+    (content-type
+     (ok
       (parser/render-file
-        template
-        (assoc params
-          :page template
-          :csrf-token *anti-forgery-token*
-          :servlet-context *app-context*)))
-    "text/html; charset=utf-8"))
+       template
+       (assoc params
+              :page template
+              :csrf-token *anti-forgery-token*
+              :servlet-context *app-context*)))
+     "text/html; charset=utf-8")))
 
 (defn error-page
   "error-details should be a map containing the following keys:

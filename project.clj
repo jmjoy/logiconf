@@ -23,11 +23,13 @@
                  [org.webjars.bower/tether "1.4.0"]
                  [org.webjars/bootstrap "4.0.0-alpha.5"]
                  [org.webjars/font-awesome "4.7.0"]
-                 [org.webjars/jquery "3.1.1"]
+                 [org.webjars/jquery "3.2.1"]
                  [ring-webjars "0.2.0"]
                  [ring/ring-core "1.6.1"]
                  [ring/ring-defaults "0.3.0"]
-                 [selmer "1.10.7"]]
+                 [selmer "1.10.7"]
+                 ;; https://mvnrepository.com/artifact/org.apache.thrift/libthrift
+                 [org.apache.thrift/libthrift "0.10.0"]]
 
   :min-lein-version "2.0.0"
 
@@ -58,7 +60,7 @@
                                  [ring/ring-devel "1.6.1"]
                                  [pjstadig/humane-test-output "0.8.2"]]
                   :plugins      [[com.jakemccrary/lein-test-refresh "0.19.0"]]
-                  
+
                   :source-paths ["env/dev/clj"]
                   :resource-paths ["env/dev/resources"]
                   :repl-options {:init-ns user}
