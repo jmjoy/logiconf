@@ -1,6 +1,8 @@
 (ns logiconf.core
   (:require [mount.core :as mount :refer [defstate]]
+            [clojure.tools.logging :as log]
             [logiconf.util :as util])
+  (:import [org.apache.logging.log4j LogManager])
   (:gen-class))
 
 ;; 配置
@@ -27,3 +29,8 @@
   (start))
 
 (def -main start)
+
+(log/error "test")
+
+(let [logger (LogManager/getLogger (str *ns*))]
+  (.error logger "hehe"))

@@ -4,7 +4,10 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [mount "0.1.11"]]
+                 [mount "0.1.11"]
+                 [org.clojure/tools.logging "0.4.0"]
+                 [org.apache.logging.log4j/log4j-api "2.8.2"]
+                 [org.apache.logging.log4j/log4j-core "2.8.2"]]
   :main ^:skip-aot logiconf.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
