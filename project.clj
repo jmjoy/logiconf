@@ -6,8 +6,8 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [mount "0.1.11"]
                  [org.clojure/tools.logging "0.4.0"]
-                 [org.apache.logging.log4j/log4j-api "2.8.2"]
-                 [org.apache.logging.log4j/log4j-core "2.8.2"]]
+                 [ch.qos.logback/logback-classic "1.2.3"]
+                 [org.immutant/immutant "2.1.9"]]
   :main ^:skip-aot logiconf.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
