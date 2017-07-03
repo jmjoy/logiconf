@@ -1,5 +1,9 @@
-(ns logiconf.handler)
+(ns logiconf.handler
+  (:require [ring.middleware.reload :refer [wrap-reload]]
+            [ring.middleware.]
+            [logiconf.controller.core :refer [handler]]))
 
-(defn app-handler [request]
-  {:status 200
-   :body "Hello world!"})
+(def app-handler handler)
+
+(def app-dev-handler (-> #'app-handler
+                         (wrap-reload)))
