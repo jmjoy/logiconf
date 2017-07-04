@@ -1,8 +1,7 @@
 (ns logiconf.controller.home
-  (:require [compojure.core :refer [defroutes GET routes]]
-            [compojure.core :refer [context]]))
+  (:require [compojure.core :refer [GET routes context]]))
 
-(def home
+(def actions
   (context "/" []
            (GET "/" [] "home page.")
            (GET "/about" [] "about page.")))

@@ -1,6 +1,7 @@
 (ns logiconf.controller.user
-  (:require [compojure.core :refer [context GET]]))
+  (:require [compojure.core :refer [GET routes context]]))
 
-(def user
-  (context "/user" []
-           (GET "/" [] "user page.")))
+(def actions
+  (context
+   "/user" []
+   (GET "/login" request (str request))))
