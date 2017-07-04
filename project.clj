@@ -9,6 +9,8 @@
                  [ch.qos.logback/logback-classic "1.2.3"]
                  [org.immutant/immutant "2.1.9"]
                  [ring "1.6.1"]
+                 [compojure "1.6.0"]
+                 [prone "1.1.4"]
                  [korma "0.4.0"]
                  [hikari-cp "1.7.6"]
                  [mysql/mysql-connector-java "5.1.41"]]
