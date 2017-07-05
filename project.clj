@@ -13,7 +13,8 @@
                  [prone "1.1.4"]
                  [korma "0.4.0"]
                  [hikari-cp "1.7.6"]
-                 [mysql/mysql-connector-java "5.1.41"]]
+                 [mysql/mysql-connector-java "5.1.41"]
+                 [migratus "0.9.7"]]
   :main ^:skip-aot logiconf.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
