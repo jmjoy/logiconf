@@ -33,6 +33,7 @@
 
   :stop  (web/stop web-server))
 
+
 (defstate ^{:doc "MySQL连接池" :on-reload :noop} mysql-datasource
   :start (let [datasource {:datasource (cp/make-datasource {:jdbc-url (get-jdbc-url)})}]
            (db/default-connection (db/create-db datasource))
@@ -40,12 +41,20 @@
 
   :stop (cp/close-datasource (:datasource mysql-datasource)))
 
+
 (defstate ^{:doc "数据库迁移配置"} migratus-config
   :start {:store :database
           :migration-dir "migrations/"
           ;; :init-script "init.sql"
-          ;; :migration-table-name "migration"
+          :migration-table-name "migration"
           :db {:connection-uri (get-jdbc-url)}})
+
+
+(def up "数据库迁移" (partial migratus/up migratus-config))
+
+(def down "数据库回滚" (partial migratus/down migratus-config))
+
+(def migrate "数据库迁移" #(migratus/migrate migratus-config))
 
 (defn start [& args]
   (mount/start))

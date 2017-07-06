@@ -1,2 +1,2 @@
 drop table user;
-drop table user_group;
+-- drop table user_group;
